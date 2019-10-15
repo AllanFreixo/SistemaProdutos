@@ -1,0 +1,46 @@
+﻿@model Projeto.Presentation.Models.ProdutoEdicaoModel
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<hd>Atualização de Produto</hd>
+<hr />
+<a href="/Produto/Consulta">voltar</a>
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Campo Oculto-->
+            @Html.HiddenFor(model=> model.IdProduto)
+            <label>Nome do Produto</label>
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Nome)
+            </span>
+            <br />
+
+            <label>Preço do Produto</label>
+            @Html.TextBoxFor(model => model.Preco, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Preco)
+            </span>
+            <br />
+
+            <label>Quantidade do Produto</label>
+            @Html.TextBoxFor(model => model.Quantidade, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Quantidade)
+            </span>
+            <br />
+
+            <input type="submit" value="Atualizar Produto" class="btn btn-success" />
+            <br />
+            <br />
+            <strong>@TempData["Mensagem"]</strong>
+        </div>
+    </div>
+}
+

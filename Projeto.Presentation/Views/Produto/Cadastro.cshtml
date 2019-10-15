@@ -1,0 +1,44 @@
+﻿@model Projeto.Presentation.Models.ProdutoCadastroModel
+@{
+    ViewData["Title"] = "Cadastro";
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<hd>Cadastro de Produto</hd>
+<hr />
+<a href="/Home/Index/">Pagina inicial</a>
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-6">
+            <label>Nome do Produto</label>
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Nome)
+            </span>
+            <br />
+            
+            <label>Preço do Produto</label>
+            @Html.TextBoxFor(model => model.Preco, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Preco)
+            </span>
+            <br />
+            
+            <label>Quantidade do Produto</label>
+            @Html.TextBoxFor(model => model.Quantidade, new { @class = "form-control" })
+            <span class="text-danger">
+                @Html.ValidationMessageFor(model => model.Quantidade)
+            </span>
+            <br />
+         
+            <input type="submit" value="Cadastrar Produto" class="btn btn-success" />
+            <br />
+            <br />
+            <strong>@TempData["Mensagem"]</strong>
+        </div>
+    </div>
+}
+
